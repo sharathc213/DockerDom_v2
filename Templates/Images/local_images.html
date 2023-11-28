@@ -1,0 +1,177 @@
+{% extends 'Main.html' %} {% block Main %} {% load static %}
+<!-- Page wrapper start -->
+<div class="page-wrapper">
+
+    <!-- Main container start -->
+    <div class="main-container">
+
+        <!-- Sidebar wrapper start -->
+        {% include 'Dashboard/Sidebar.html'%}
+        <!-- Sidebar wrapper end -->
+
+        <!-- App container starts -->
+        <div class="app-container">
+
+            <!-- App header starts -->
+            {% include 'Dashboard/Topbar.html'%}
+            <!-- App header ends -->
+
+            <!-- App body starts -->
+            <div class="app-body">
+
+                <!-- Container starts -->
+                <div class="container-fluid">
+
+                    <!-- Row start -->
+                    <div class="row">
+                        <div class="col-10 col-xl-6">
+                            <!-- Breadcrumb start -->
+                            <ol class="breadcrumb d-none d-lg-flex mb-4">
+                                <li class="breadcrumb-item">
+                                    <i class="icon-home lh-1"></i>
+                                    <a href="index.html" class="text-decoration-none">Home</a>
+                                </li>
+                                <li class="breadcrumb-item">Images</li>
+                                <li class="breadcrumb-item">Local Images</li>
+                                
+                            </ol>
+                            <!-- Breadcrumb end -->
+                        </div>
+                        <div class="col-2 col-xl-6">
+                            <div class="d-flex flex-wrap gap-2 justify-content-end">
+                                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalXl">
+                                    Log Viewer
+                                </button>
+                                <!-- Modal XL -->
+                                <div class="modal fade" id="exampleModalXl" tabindex="-1" aria-labelledby="exampleModalXlLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title h4" id="exampleModalXlLabel">
+                                                    Image Log
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body image_log">
+                                        
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                      
+                                
+                                
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <!-- Row end -->
+
+                    <!-- Search container start -->
+                    <!-- <form id="search_form" method="post"> -->
+                        {% csrf_token %}
+                       
+                        <div class="search-container d-lg-block d-none  mb-3 ">
+                            <input type="text" class="form-control" id="search_image" name="search_image"
+                                placeholder="Search for local image" />
+                            <i class="icon-search"></i>
+                        </div>
+                
+                    <!-- </form> -->
+                    <!-- Search container end -->
+                    <div class="local_image_result">
+                        <div class="alert border-info alert-dismissible fade show text-info" role="alert">
+                            <b>Info!</b> Please Search For Docker images from docker Hub
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+               
+
+                    </div>
+
+                </div>
+                <!-- Container ends -->
+
+            </div>
+            <!-- App body ends -->
+
+        </div>
+        <!-- Main container end -->
+
+    </div>
+
+    <script>
+  function image_log_ajax(){
+      
+      $('.preload').css("visibility", "visible");
+  
+      let csf = $("input[name=csrfmiddlewaretoken]").val();
+     
+
+      $.ajax({
+      type: 'POST',
+      headers: { "X-CSRFToken": csf },
+      url: '/Images/image_log_ajax', // Replace with your API endpoint
+    //   data: {keyword},
+      success: function(response) {
+          // Handle the successful response
+          $('.image_log').html(response);
+      },
+      error: function(error) {
+          // Handle errors
+          console.error('Error:', error);
+      },
+      complete: function() {
+          // Hide loading indicator after the request is complete
+          $('.preload').css("visibility", "hidden");
+      }
+  });
+  }
+    function local_image_ajax(){
+      
+      $('.preload').css("visibility", "visible");
+      var keyword = $('#search_image').val();
+      let csf = $("input[name=csrfmiddlewaretoken]").val();
+     
+
+      $.ajax({
+      type: 'POST',
+      headers: { "X-CSRFToken": csf },
+      url: '/Images/local_image_ajax', // Replace with your API endpoint
+      data: {keyword},
+      success: function(response) {
+          // Handle the successful response
+          $('.local_image_result').html(response);
+      },
+      error: function(error) {
+          // Handle errors
+          console.error('Error:', error);
+      },
+      complete: function() {
+          // Hide loading indicator after the request is complete
+          $('.preload').css("visibility", "hidden");
+      }
+  });
+  }
+   
+        $(document).ready(function () {
+            local_image_ajax();
+            image_log_ajax();
+            // Submit the form when the Enter key is pressed
+            $('#search_image').keydown(function (event) {
+                local_image_ajax();
+                if (event.key === 'Enter' || event.key === 'Backspace') {
+            local_image_ajax();
+        }
+            });
+     
+        
+ 
+
+    });
+    
+    </script>
+
+
+    <!-- Page wrapper end -->
+    {% endblock Main %}

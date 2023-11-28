@@ -1,0 +1,442 @@
+{% extends 'Main.html' %} {% block Main %} {% load static %}
+<!-- Page wrapper start -->
+<div class="page-wrapper">
+
+    <!-- Main container start -->
+    <div class="main-container">
+
+        <!-- Sidebar wrapper start -->
+        {% include 'Dashboard/Sidebar.html'%}
+        <!-- Sidebar wrapper end -->
+
+        <!-- App container starts -->
+        <div class="app-container">
+
+            <!-- App header starts -->
+            {% include 'Dashboard/Topbar.html'%}
+            <!-- App header ends -->
+
+            <!-- App body starts -->
+            <div class="app-body">
+
+                <!-- Container starts -->
+                <div class="container-fluid">
+
+                    <!-- Row start -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-12 col-xl-6">
+                            <h2 class="mb-2">Analytics Dashboard</h2>
+                            <h6 class="mb-2 fw-light text-dark small">
+                                A collection of visualizations showing your website data.
+                            </h6>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="row g-3">
+                                <div class="col-4">
+                                    <div class="card p-2 rounded-2 d-flex flex-row flex-wrap">
+                                        <div class="position-relative shape-block">
+                                            <img src="{% static 'assets/images/shape1.png' %}" class="img-fluid img-4x" alt="Bootstrap Themes" />
+                                            <i class="icon-book-open"></i>
+                                        </div>
+                                        <div class="ms-2">
+                                            <h3 class="m-0 fw-semibold">250</h3>
+                                            <h6 class="m-0 fw-light">Items</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card p-2 rounded-2 d-flex flex-row flex-wrap">
+                                        <div class="position-relative shape-block">
+                                            <img src="{% static 'assets/images/shape2.png' %}" class="img-fluid img-4x" alt="Bootstrap Themes" />
+                                            <i class="icon-shopping-cart"></i>
+                                        </div>
+                                        <div class="ms-2">
+                                            <h3 class="m-0 fw-semibold">490</h3>
+                                            <h6 class="m-0 fw-light">Orders</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card p-2 rounded-2 d-flex flex-row flex-wrap">
+                                        <div class="position-relative shape-block">
+                                            <img src="{% static 'assets/images/shape3.png' %}" class="img-fluid img-4x" alt="Bootstrap Themes" />
+                                            <i class="icon-shopping-bag"></i>
+                                        </div>
+                                        <div class="ms-2">
+                                            <h3 class="m-0 fw-semibold">630</h3>
+                                            <h6 class="m-0 fw-light">Sales</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+
+                    <!-- Row start -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div id="incomeData"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row ends -->
+
+                    <!-- Row start -->
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <!-- Details start -->
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            <h5 class="card-title mb-2">Users</h5>
+                                            <p>Overall new users are higher than last week</p>
+                                            <span class="badge border border-primary text-primary">25% Higher</span>
+                                        </div>
+                                        <div class="">
+                                            <i class="display-5 text-primary icon-arrow-up-right"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Details end -->
+
+                                    <!-- Graph start -->
+                                    <div id="usersData"></div>
+                                    <!-- Graph end -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <!-- Details start -->
+                                    <div class="d-flex justify-content-between">
+                                        <div class="">
+                                            <h5 class="card-title mb-2">Orders</h5>
+                                            <p>Overall orders are higher than last week</p>
+                                            <span class="badge border border-primary text-primary">32% Higher</span>
+                                        </div>
+                                        <div class="">
+                                            <i class="display-5 text-primary icon-arrow-up-right"></i>
+                                        </div>
+                                    </div>
+                                    <!-- Details end -->
+
+                                    <!-- Graph start -->
+                                    <div id="ordersData"></div>
+                                    <!-- Graph end -->
+
+                                    <!-- Row start -->
+                                    <div class="row">
+                                        <div class="col-sm-4 col-4 v-curve-seperator">
+                                            <div class="text-center">
+                                                <i class="icon-box mb-2 fs-5"></i>
+                                                <h3>24</h3>
+                                                <p class="m-0">Done</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-4 v-curve-seperator">
+                                            <div class="text-center">
+                                                <i class="icon-box mb-2 fs-5"></i>
+                                                <h3>56</h3>
+                                                <p class="m-0">Pending</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-4 ">
+                                            <div class="text-center">
+                                                <i class="icon-box mb-2 fs-5"></i>
+                                                <h3>36</h3>
+                                                <p class="m-0">New</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row ends -->
+
+                    <!-- Row end -->
+                    <div class="row">
+                        <div class="col-xl-6 col-sm-12 col-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title">Budget</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Row start -->
+                                    <div class="row g-4">
+                                        <div class="col-sm-6 col-12">
+                                            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+                                                <div class="me-2">
+                                                    <div id="sparkline1"></div>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bold">$450</div>
+                                                        <div class="ms-2 text-primary fw-bold d-flex">
+                                                            <i class="icon-trending-up fs-4 me-1"></i>
+                                                            10%
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-dark">Yearly Sales</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-12">
+                                            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+                                                <div class="me-2">
+                                                    <div id="sparkline2"></div>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bold">$750</div>
+                                                        <div class="ms-2 text-danger fw-bold d-flex">
+                                                            <i class="icon-trending-down fs-4 me-1"></i>
+                                                            12%
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-dark">Overall Purchases</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-12">
+                                            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+                                                <div class="me-2">
+                                                    <div id="sparkline3"></div>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bold">$560</div>
+                                                        <div class="ms-2 text-primary fw-bold d-flex">
+                                                            <i class="icon-trending-up fs-4 me-1"></i>
+                                                            22%
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-dark">Pending Invoices</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-12">
+                                            <div class="border rounded-2 d-flex align-items-center flex-row p-2">
+                                                <div class="me-2">
+                                                    <div id="sparkline4"></div>
+                                                </div>
+                                                <div class="m-0">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="fs-4 fw-bold">$390</div>
+                                                        <div class="ms-2 text-primary fw-bold d-flex">
+                                                            <i class="icon-trending-up fs-4 me-1"></i>
+                                                            16%
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-dark">Monthly Billing</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-6 col-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title">Payments</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="paymentsData"></div>
+                                    <div class="text-center">
+                                        <span class="badge border border-primary text-primary">Paid 850/1000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-sm-6 col-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title">Conversion</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="conversionData"></div>
+                                    <div class="text-center">
+                                        <span class="badge border border-primary text-primary">32% higher than last week</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+
+                    <!-- Row start -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="border rounded-2">
+                                        <div class="table-responsive">
+                                            <table class="table align-middle text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Link</th>
+                                                        <th>Purchase Date</th>
+                                                        <th>Product Details</th>
+                                                        <th>Views</th>
+                                                        <th>Clicks</th>
+                                                        <th>Reviews</th>
+                                                        <th>Amount</th>
+                                                        <th>Status</th>
+                                                        <th>Order Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                                <img src="{% static 'assets/images/products/product2.jpg' %}"
+                                                                    class="rounded-3 img-4x border border-dark p-1 my-1" alt="Admin Dashboards" />
+                                                                <div class="d-flex flex-column ms-3">
+                                                                    <p class="m-0 fw-semibold">
+                                                                        Bootstrap Themes
+                                                                    </p>
+                                                                    <p class="text-dark small m-0">
+                                                                        (60% Discount)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0)">#L10010021</a>
+                                                        </td>
+                                                        <td>22/04/2023</td>
+                                                        <td class="text-truncate">
+                                                            Best admin dashboard theme.
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-secondary text-secondary">6500</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-primary text-primary">2600</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="rate2 rating-stars"></div>
+                                                        </td>
+                                                        <td>$18.00</td>
+                                                        <td>
+                                                            <span class="badge bg-secondary"> Paid</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-primary">Delivered</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                                <img src="{% static 'assets/images/products/product3.jpg' %}"
+                                                                    class="rounded-3 img-4x border border-dark p-1 my-1" alt="Admin Dashboards" />
+                                                                <div class="d-flex flex-column ms-3">
+                                                                    <p class="m-0 fw-semibold">
+                                                                        Bootstrap Themes
+                                                                    </p>
+                                                                    <p class="text-dark small m-0">
+                                                                        (48% Discount)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0)">#L10010027</a>
+                                                        </td>
+                                                        <td>21/04/2023</td>
+                                                        <td class="text-truncate">
+                                                            Best bootstrap admin dashboard theme.
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-secondary text-secondary">8740</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-primary text-primary">4390</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="rate4 rating-stars"></div>
+                                                        </td>
+                                                        <td>$21.00</td>
+                                                        <td>
+                                                            <span class="badge bg-secondary"> Paid</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-primary">Delivered</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex flex-row align-items-center">
+                                                                <img src="{% static 'assets/images/products/product5.jpg' %}"
+                                                                    class="rounded-3 img-4x border border-dark p-1 my-1" alt="Admin Dashboards" />
+                                                                <div class="d-flex flex-column ms-3">
+                                                                    <p class="m-0 fw-semibold">
+                                                                        Bootstrap Themes
+                                                                    </p>
+                                                                    <p class="text-dark small m-0">
+                                                                        (34% Discount)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0)">#L10010030</a>
+                                                        </td>
+                                                        <td>20/04/2023</td>
+                                                        <td class="text-truncate">
+                                                            Best bootstrap admin dashboard template.
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-secondary text-secondary">5590</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge border border-primary text-primary">3280</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="rate5 rating-stars"></div>
+                                                        </td>
+                                                        <td>$24.00</td>
+                                                        <td>
+                                                            <span class="badge bg-secondary"> Paid</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-primary">Delivered</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+
+                </div>
+                <!-- Container ends -->
+
+            </div>
+            <!-- App body ends -->
+
+            <!-- App footer start -->
+            {% include 'Dashboard/Footer.html'%}
+            <!-- App footer end -->
+
+        </div>
+        <!-- App container ends -->
+
+    </div>
+    <!-- Main container end -->
+
+</div>
+<!-- Page wrapper end -->
+{% endblock Main %}

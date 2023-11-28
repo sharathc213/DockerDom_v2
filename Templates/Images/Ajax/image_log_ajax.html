@@ -1,0 +1,5 @@
+<pre>
+  {% for log in logs %}
+  {{ log|striptags|linebreaks|safe }}
+  {% endfor %}
+</pre>

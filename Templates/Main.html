@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Admin Dashboard Templates - Galaxy Admin Template</title>
+
+		<!-- Meta -->
+		<meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
+		<meta name="author" content="Bootstrap Gallery" />
+		<link rel="canonical" href="https://www.bootstrap.gallery/">
+		<meta property="og:url" content="https://www.bootstrap.gallery">
+		<meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+		<meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+		<meta property="og:type" content="Website">
+		<meta property="og:site_name" content="Bootstrap Gallery">
+		<link rel="shortcut icon" href="{% static 'assets/images/favicon.svg' %}" />
+		<script src="{% static 'assets/js/custom.js' %}"></script>
+		<!-- *************
+			************ CSS Files *************
+		************* -->
+		<!-- Icomoon Font Icons css -->
+		<link rel="stylesheet" href="{% static 'assets/fonts/icomoon/style.css' %}" />
+
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="{% static 'assets/css/main.min.css' %}" />
+
+		<!-- *************
+			************ Vendor Css Files *************
+		************ -->
+
+		<!-- Scrollbar CSS -->
+		<link rel="stylesheet" href="{% static 'assets/vendor/overlay-scroll/OverlayScrollbars.min.css' %}" />
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	</head>
+	{% include 'Dashboard/Preload.html'%}
+	<body>
+		
+
+
+
+
+        {% block Main %} {% endblock Main %}
+
+
+
+	<!-- *************
+			************ JavaScript Files *************
+		************* -->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+		<!-- Overlay Scroll JS -->
+		<script src="{% static 'assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/overlay-scroll/custom-scrollbar.js' %}"></script>
+
+		<!-- Apex Charts -->
+		<script src="{% static 'assets/vendor/apex/apexcharts.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/incomeData.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/usersData.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/ordersData.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/conversionData.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/paymentsData.js' %}"></script>
+		<script src="{% static 'assets/vendor/apex/custom/home/sparklineData.js' %}"></script>
+
+		<!-- Rating -->
+		<script src="{% static 'assets/vendor/rating/raty.js' %}"></script>
+		<script src="{% static 'assets/vendor/rating/raty-custom.js' %}"></script>
+
+		<!-- Custom JS files -->
+		<script src="{% static 'assets/js/custom.js' %}"></script>
+		<script>$('.preload').css("visibility", "hidden");</script>
+	</body>
+
+</html>

@@ -1,0 +1,8 @@
+table.dataTable {
+	color: #ffffff;
+	margin-bottom: 15px !important;
+}
+table.dataTable td.highlight {
+	background: rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+}

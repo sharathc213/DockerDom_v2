@@ -1,0 +1,82 @@
+
+                    <!-- Row start -->
+                    <div class="row">
+                        {% include 'Script.html' %}
+                        {% for data in result %}
+                        <div class="col-sm-4 col-12 card-container">
+                            <div class="card  mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title">{{ data.tags | first }}</h5>
+                                </div>
+                      
+                                <div class="card-body">
+                                  
+                                    <p>
+                                        Image ID : {{data.id}}
+                                    </p>
+                                   
+                                    <p>
+                                        Created : {{ data.attrs.Created }} 
+                                    </p>
+                                
+                                    <p>
+                                        Size : {{ data.attrs.Size}} bytes
+                        
+                                    </p>
+                                    <p>
+                                        Os : {{ data.attrs.Os}} 
+                        
+                                    </p>
+                                    <div class="card-body">
+                                        <div class="d-flex gap-2">
+                                            <button  type="button" class="btn btn-outline-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Create Container ">
+                                                <i class="fs-3 icon-power m-0"></i>
+                                            </button>
+                                      
+                                            <button onclick="delete_image('{{ data.tags | first }}')" type="button" class="btn btn-outline-danger position-relative" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Delete this image">
+                                                <i class="fs-3 icon-trash-2 m-0"></i>
+                                                <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">     {{ data.star_count }}</span>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     {% endfor %}
+            
+                    </div>
+                    <!-- Row end -->
+           
+            <script>
+                function delete_image(image){
+      
+      $('.preload').css("visibility", "visible");
+      
+      let csf = $("input[name=csrfmiddlewaretoken]").val();
+     
+
+      $.ajax({
+      type: 'POST',
+      headers: { "X-CSRFToken": csf },
+      url: '/Images/delete_image_ajax', // Replace with your API endpoint
+      data: {image},
+      success: function(response) {
+          // Handle the successful response
+        //   $('.local_image_result').html(response);
+        local_image_ajax();
+      },
+      error: function(error) {
+          // Handle errors
+          console.error('Error:', error);
+      },
+      complete: function() {
+          // Hide loading indicator after the request is complete
+          $('.preload').css("visibility", "hidden");
+      }
+  });
+  }
+            </script>
